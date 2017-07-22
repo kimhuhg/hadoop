@@ -1,9 +1,9 @@
+package hdfs;
 
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.*;
 import org.junit.Before;
 import org.junit.Test;
-
 
 import java.net.URI;
 import java.util.Iterator;
@@ -27,6 +27,8 @@ public class HdfsClientDemo1 {
     public void init() throws Exception {
         conf = new Configuration();
         conf.set("fs.defaultFS", "hdfs://miniMaster1:9000");
+        conf.set("dfs.replaction", "2");
+        System.out.println(conf.get("dfs.replaction"));
         //拿到一个文件系统操作的客户端实例对象
         /*fs = FileSystem.get(conf);*/
         //可以直接传入 uri和用户身份
@@ -35,6 +37,7 @@ public class HdfsClientDemo1 {
 
     }
 
+    @Test
     public void testUpload() throws Exception {
         Thread.sleep(2000);
         fs.copyFromLocalFile(new Path("H:\\036_2016传智大数据第3期实战培训完整版 压缩\\[www.17zixueba.com]资料\\[www.17zixueba.com]day06--hadoop\\[www.17zixueba.com]day06\\shizhan_03_hadoop\\src\\cn\\itcast\\bigdata\\hdfs\\HdfsClientDemo.java"), new Path("/HdfsClientDemo.java.copy1"));
@@ -71,7 +74,7 @@ public class HdfsClientDemo1 {
      */
     @Test
     public void deleteTest() throws Exception {
-        boolean delete = fs.delete(new Path("/HdfsClientDemo.java.copy"), true);//true， 递归删除
+        boolean delete = fs.delete(new Path("/HdfsClientDemo.java.copy1"), true);//true， 递归删除
         System.out.println(delete);
     }
 
@@ -91,6 +94,46 @@ public class HdfsClientDemo1 {
 
         }
     }
-    
+
+
+    @Test
+    public void testListFiles() throws Exception {
+
+        // 思考：为什么返回迭代器，而不是List之类的容器
+        RemoteIterator<LocatedFileStatus> listFiles = fs.listFiles(new Path("/"), true);
+
+        while (listFiles.hasNext()) {
+            LocatedFileStatus fileStatus = listFiles.next();
+            System.out.println(fileStatus.getPath().getName());
+            System.out.println(fileStatus.getBlockSize());
+            System.out.println(fileStatus.getPermission());
+            System.out.println(fileStatus.getLen());
+            BlockLocation[] blockLocations = fileStatus.getBlockLocations();
+            for (BlockLocation bl : blockLocations) {
+                System.out.println("block-length:" + bl.getLength() + "--" + "block-offset:" + bl.getOffset());
+                String[] hosts = bl.getHosts();
+                for (String host : hosts) {
+                    System.out.println(host);
+                }
+            }
+            System.out.println("--------------为angelababy打印的分割线--------------");
+        }
+    }
+
+    /**
+     * 查看文件及文件夹信息
+     *
+     */
+    @Test
+    public void testListAll() throws Exception {
+
+        FileStatus[] listStatus = fs.listStatus(new Path("/"));
+
+        String flag = "d--             ";
+        for (FileStatus fstatus : listStatus) {
+            if (fstatus.isFile())  flag = "f--         ";
+            System.out.println(flag + fstatus.getPath().getName());
+        }
+    }
 
 }
