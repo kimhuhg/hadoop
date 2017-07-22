@@ -70,8 +70,6 @@ public class HdfsStreamAccess {
     public void testRandomAccess() throws IllegalArgumentException, IOException{
         //先获取一个文件的输入流----针对hdfs上的
         FSDataInputStream in = fs.open(new Path("/hdfs.iml"));
-
-
         //可以将流的起始偏移量进行自定义
         in.seek(22);
 
@@ -79,7 +77,6 @@ public class HdfsStreamAccess {
         FileOutputStream out = new FileOutputStream(new File("c:/hdfs.iml"));
 
         org.apache.hadoop.io.IOUtils.copyBytes(in,out,19L,true);
-
     }
 
 
