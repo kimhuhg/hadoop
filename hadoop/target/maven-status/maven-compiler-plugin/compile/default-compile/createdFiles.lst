@@ -1,0 +1,12 @@
+mapreduce\wordcount\WordCountReducer.class
+hadoopRpc\client\MyHdfsClient.class
+hadoopRpc\protocol\ClientNamenodeProtocol.class
+hdfs\HdfsClientDemo1.class
+hadoopRpc\client\UserLoginAction.class
+hdfs\HdfsStreamAccess.class
+hadoopRpc\protocol\IUserLoginService.class
+hadoopRpc\service\MyNameNode.class
+mapreduce\wordcount\WordCountDriver.class
+mapreduce\wordcount\WordCountMapper.class
+hadoopRpc\service\PublishServiceUtil.class
+hadoopRpc\service\UserLoginServiceImpl.class
