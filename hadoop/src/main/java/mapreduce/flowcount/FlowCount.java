@@ -1,11 +1,7 @@
 package mapreduce.flowcount;
 
-import mapreduce.wordcount.WordCountDriver;
-import mapreduce.wordcount.WordCountMapper;
-import mapreduce.wordcount.WordCountReducer;
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.Path;
-import org.apache.hadoop.io.IntWritable;
 import org.apache.hadoop.io.LongWritable;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Job;
@@ -16,6 +12,10 @@ import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 
 import java.io.IOException;
 
+/**
+ * map 输出的数据要分区6各分区
+ * 重写partitioner 分到各个区
+ */
 public class FlowCount {
     static class FlowCountMapper extends Mapper<LongWritable, Text, Text, FlowBean> {
         @Override
@@ -73,6 +73,10 @@ public class FlowCount {
         //指定本业务job要使用的mapper、Reducer业务类
         job.setMapperClass(FlowCountMapper.class);
         job.setReducerClass(FlowCountReducer.class);
+        //指定自定义的数据分区器
+        job.setPartitionerClass(ProvincePartitioner.class);
+        //同时指定相应数量的reduceTask
+        job.setNumReduceTasks(5);
 
         //指定Map的输出数据K,V类型
         job.setMapOutputKeyClass(Text.class);
