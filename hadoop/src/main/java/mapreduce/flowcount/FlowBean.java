@@ -1,12 +1,13 @@
 package mapreduce.flowcount;
 
 import org.apache.hadoop.io.Writable;
+import org.apache.hadoop.io.WritableComparable;
 
 import java.io.DataInput;
 import java.io.DataOutput;
 import java.io.IOException;
 
-public class FlowBean implements Writable {
+public class FlowBean implements WritableComparable<FlowBean> {
     private long upFlow;
     private long dFlow;
     private long sumFlow;
@@ -16,6 +17,12 @@ public class FlowBean implements Writable {
     }
 
     public FlowBean(long upFlow, long dFlow) {
+        this.upFlow = upFlow;
+        this.dFlow = dFlow;
+        this.sumFlow = upFlow + dFlow;
+    }
+
+    public void set(long upFlow, long dFlow) {
         this.upFlow = upFlow;
         this.dFlow = dFlow;
         this.sumFlow = upFlow + dFlow;
@@ -69,6 +76,20 @@ public class FlowBean implements Writable {
         dFlow = in.readLong();
         sumFlow = in.readLong();
     }
+
+    public int compareTo(FlowBean o) {
+//        if (this.sumFlow > o.getSumFlow())
+//            return -1;
+//        else if (this.sumFlow < o.getSumFlow())
+//            return 1;
+//        else
+//            return 0;
+
+        //从大到小, 当前对象和要比较的对象比, 如果当前对象大, 返回-1, 交换他们的位置(自己的理解)
+        return this.sumFlow > o.getSumFlow() ? -1 : (this.sumFlow < o.getSumFlow() ? 1 : 0);
+
+    }
+
 
     @Override
     public String toString() {
