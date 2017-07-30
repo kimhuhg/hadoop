@@ -1,6 +1,7 @@
 package mapreduce.flowcount;
 
 import org.apache.hadoop.conf.Configuration;
+import org.apache.hadoop.fs.FileSystem;
 import org.apache.hadoop.fs.Path;
 import org.apache.hadoop.io.LongWritable;
 import org.apache.hadoop.io.Text;
@@ -85,6 +86,12 @@ public class FlowCountSort {
 
         //指定job的输入原始文件所在目录
         FileInputFormat.setInputPaths(job, new Path(args[0]));
+        Path outpath = new Path(args[1]);
+        FileSystem fs = FileSystem.get(conf);
+        if(fs.exists(outpath)){
+            fs.delete(outpath,true);
+        }
+
         //指定job输出的文件目录
         FileOutputFormat.setOutputPath(job, new Path(args[1]));
 
