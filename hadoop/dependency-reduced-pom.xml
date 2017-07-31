@@ -31,7 +31,7 @@
                   <resource>reference.conf</resource>
                 </transformer>
                 <transformer>
-                  <mainClass>mapreduce.wordcount.WordCountDriver</mainClass>
+                  <mainClass>mapreduce.flowcount.FlowCountSort</mainClass>
                 </transformer>
               </transformers>
             </configuration>
