@@ -19,6 +19,7 @@ public class WordCountDriver {
     public static void main(String[] args) throws Exception {
 
         Configuration conf = new Configuration();
+//        conf.set("mapreduce.framework.name","local");
         conf.set("mapreduce.framework.name","yarn");
         conf.set("yarn.resourcemanager.hostname","minimaster1");
         Job job = Job.getInstance(conf);
