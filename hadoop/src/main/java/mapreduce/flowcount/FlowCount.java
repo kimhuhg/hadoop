@@ -32,8 +32,6 @@ public class FlowCount {
             context.write(new Text(phoneNumber), new FlowBean(upFlow, dFlow));
 
         }
-
-
     }
 
     static class FlowCountReducer extends Reducer<Text, FlowBean, Text, FlowBean> {
@@ -59,11 +57,11 @@ public class FlowCount {
     public static void main(String[] args) throws Exception {
 
         Configuration conf = new Configuration();
-        conf.set("mapreduce.framework.name","yarn");
-        conf.set("yarn.resourcemanager.hostname","minimaster1");
+        conf.set("mapreduce.framework.name", "yarn");
+        conf.set("yarn.resourcemanager.hostname", "minimaster1");
         //conf.set("yarn.nodemanager.address","192.168.2.150");
         //conf.set( "mapred.job.tracker","192.168.2.150:9001");
-       // conf.set("fs.default.name","hdfs:192.168.2.150:9000");
+        // conf.set("fs.default.name","hdfs:192.168.2.150:9000");
         Job job = Job.getInstance(conf);
 
         //指定本程序jar包所在的本地路径
@@ -75,7 +73,7 @@ public class FlowCount {
         job.setReducerClass(FlowCountReducer.class);
 
         //指定自定义的数据分区器
-       // job.setPartitionerClass(ProvincePartitioner.class);
+        // job.setPartitionerClass(ProvincePartitioner.class);
         //同时指定相应数量的reduceTask
         //job.setNumReduceTasks(5);
 
