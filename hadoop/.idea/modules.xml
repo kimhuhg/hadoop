@@ -3,7 +3,6 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/bigdata.iml" filepath="$PROJECT_DIR$/bigdata.iml" />
-      <module fileurl="file://H:\project\hadoop\hadoop\bigdata.iml" filepath="H:\project\hadoop\hadoop\bigdata.iml" />
     </modules>
   </component>
 </project>

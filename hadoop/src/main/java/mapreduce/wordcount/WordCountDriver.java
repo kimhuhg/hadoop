@@ -44,7 +44,7 @@ public class WordCountDriver {
 
         Job job = Job.getInstance(conf);
 
-        //指定本程序jar包所在的本地路径
+        //指定本程序jar包所在的本地路径, java -jar
 //        job.setJar("/opt/jar/wordcount/wc.jar");
         job.setJarByClass(WordCountDriver.class);
 
