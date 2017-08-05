@@ -20,8 +20,28 @@ public class WordCountDriver {
 
         Configuration conf = new Configuration();
 //        conf.set("mapreduce.framework.name","local");
-        conf.set("mapreduce.framework.name","yarn");
-        conf.set("yarn.resourcemanager.hostname","minimaster1");
+//        conf.set("mapreduce.framework.name","yarn");   //指定运行在yarn上
+//        conf.set("yarn.resourcemanager.hostname","minimaster1");
+//        conf.set("fs.defaultFS","file");
+
+
+        //是否运行为本地模式，就是看这个参数值是否为local，默认就是local
+		/*conf.set("mapreduce.framework.name", "local");*/
+
+        //本地模式运行mr程序时，输入输出的数据可以在本地，也可以在hdfs上
+        //到底在哪里，就看以下两行配置你用哪行，默认就是file:///
+		/*conf.set("fs.defaultFS", "hdfs://mini1:9000/");*/
+		/*conf.set("fs.defaultFS", "file:///");*/
+
+
+
+        //运行集群模式，就是把程序提交到yarn中去运行
+        //要想运行为集群模式，以下3个参数要指定为集群上的值
+		/*conf.set("mapreduce.framework.name", "yarn");
+		conf.set("yarn.resourcemanager.hostname", "mini1");
+		conf.set("fs.defaultFS", "hdfs://mini1:9000/");*/
+
+
         Job job = Job.getInstance(conf);
 
         //指定本程序jar包所在的本地路径
