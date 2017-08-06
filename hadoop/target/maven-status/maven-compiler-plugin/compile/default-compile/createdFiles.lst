@@ -1,7 +1,10 @@
+mapreduce\InverIndex\InverIndexStepTwo.class
 mapreduce\wordcount\WordCountReducer.class
 mapreduce\join\RJoin.class
+mapreduce\InverIndex\InverIndexStepTwo$InverIndexStepTwoMapper.class
 mapreduce\flowcount\FlowCount$FlowCountMapper.class
 hdfs\HdfsStreamAccess.class
+mapreduce\InverIndex\InverIndexStepTwo$InverIndexStepTwoReducer.class
 mapreduce\flowcount\FlowCountSort$FlowCountSortMapper.class
 mapreduce\join\RJoin$RJoinMapper.class
 mapreduce\wordcount\WordCountMapper.class
