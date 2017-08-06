@@ -72,3 +72,15 @@ public class InverIndexStepOne {
     }
 
 }
+
+/**
+  hello-->a.txt	3
+ hello-->b.txt	2
+ hello-->c.txt	2
+ jerry-->a.txt	1
+ jerry-->b.txt	3
+ jerry-->c.txt	1
+ tom-->a.txt	2
+ tom-->b.txt	1
+ tom-->c.txt	1
+ */

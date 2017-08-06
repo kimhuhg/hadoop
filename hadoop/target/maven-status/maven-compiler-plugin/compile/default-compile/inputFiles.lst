@@ -4,6 +4,7 @@ H:\project\hadoop\hadoop\src\main\java\hdfs\HdfsStreamAccess.java
 H:\project\hadoop\hadoop\src\main\java\mapreduce\join\RJoin.java
 H:\project\hadoop\hadoop\src\main\java\hadoopRpc\service\UserLoginServiceImpl.java
 H:\project\hadoop\hadoop\src\main\java\mapreduce\wordcount\WordCountReducer.java
+H:\project\hadoop\hadoop\src\main\java\mapreduce\InverIndex\InverIndexStepTwo.java
 H:\project\hadoop\hadoop\src\main\java\hadoopRpc\service\MyNameNode.java
 H:\project\hadoop\hadoop\src\main\java\mapreduce\wordcount\WordCountMapper.java
 H:\project\hadoop\hadoop\src\main\java\mapreduce\wordcount\WordCountDriver.java
@@ -19,4 +20,5 @@ H:\project\hadoop\hadoop\src\main\java\hadoopRpc\service\PublishServiceUtil.java
 H:\project\hadoop\hadoop\src\main\java\mapreduce\flowcount\FlowCount.java
 H:\project\hadoop\hadoop\src\main\java\test\FlowBeanSortTest.java
 H:\project\hadoop\hadoop\src\main\java\mapreduce\mapsidejoin\MapSideJoin.java
+H:\project\hadoop\hadoop\src\main\java\mapreduce\sharedfriends\SharedFriendsStepOne.java
 H:\project\hadoop\hadoop\src\main\java\hadoopRpc\protocol\IUserLoginService.java

@@ -63,3 +63,9 @@ public class InverIndexStepTwo {
     }
 
 }
+
+/**
+ hello	c.txt-->2	b.txt-->2	a.txt-->3
+ jerry	c.txt-->1	b.txt-->3	a.txt-->1
+ tom	c.txt-->1	b.txt-->1	a.txt-->2
+ **/
