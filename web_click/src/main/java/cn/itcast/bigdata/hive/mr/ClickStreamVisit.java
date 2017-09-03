@@ -116,10 +116,10 @@ public class ClickStreamVisit {
 		job.setOutputValueClass(VisitBean.class);
 		
 		
-//		FileInputFormat.setInputPaths(job, new Path(args[0]));
-//		FileOutputFormat.setOutputPath(job, new Path(args[1]));
-		FileInputFormat.setInputPaths(job, new Path("C:/weblog/pageviews"));
-		FileOutputFormat.setOutputPath(job, new Path("c:/weblog/visitout"));
+		FileInputFormat.setInputPaths(job, new Path(args[0]));
+		FileOutputFormat.setOutputPath(job, new Path(args[1]));
+//		FileInputFormat.setInputPaths(job, new Path("C:/weblog/pageviews"));
+//		FileOutputFormat.setOutputPath(job, new Path("c:/weblog/visitout"));
 		
 		boolean res = job.waitForCompletion(true);
 		System.exit(res?0:1);

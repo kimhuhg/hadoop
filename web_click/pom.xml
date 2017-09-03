@@ -89,7 +89,7 @@
                                     <resource>reference.conf</resource>
                                 </transformer>
                                 <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
-                                    <mainClass>hive.JsonParser</mainClass> <!--main方法-->
+                                    <mainClass></mainClass> <!--main方法-->
                                 </transformer>
                             </transformers>
                         </configuration>
